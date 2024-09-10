@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mycard/main_page.dart';
+import './main_page.dart';
 
 class MyCardApp extends StatelessWidget {
   const MyCardApp({super.key});
@@ -9,7 +9,6 @@ class MyCardApp extends StatelessWidget {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
       home: MainPage(),
-    ); //Material App
+    );
   }
 }
-
