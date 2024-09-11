@@ -16,7 +16,7 @@ class MainPage extends StatelessWidget {
           children: [
             CircleAvatar(
               radius: 25.0,
-              backgroundImage: AssetImage('assets/images/person.png'),
+              backgroundImage: AssetImage('assets/images/person.jpg'),
             ),
             Text(
               'ME AJUDE POR FAVOR',
