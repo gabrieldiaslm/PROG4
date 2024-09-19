@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'main_page.dart';
+import './main_page.dart';
 
 class DicesApp extends StatelessWidget {
   const DicesApp({super.key});
@@ -8,8 +8,8 @@ class DicesApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const MainPage(),
       theme: ThemeData.dark(),
+      home: MainPage(),
     );
   }
 }
