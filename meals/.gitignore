@@ -10,13 +10,13 @@
 .svn/
 migrate_working_dir/
 
-#platforms
+# Platforms
 android
 web
 ios
-macos
-windows
 linux
+windows
+macos
 
 # IntelliJ related
 *.iml
