@@ -9,10 +9,9 @@ class MealsApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        useMaterial3: false,
-        colorSchemeSeed: Colors.blue,
+        useMaterial3: true, // Material.io
+        colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.pink),
         brightness: Brightness.light,
-        canvasColor: const Color.fromRGBO(255, 254, 229, 1.0),
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
               titleLarge: const TextStyle(
