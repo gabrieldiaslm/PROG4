@@ -9,7 +9,7 @@ class DicesApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
-      home: MainPage(),
+      home: const MainPage(),
     );
   }
 }

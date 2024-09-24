@@ -21,7 +21,7 @@ class MealsApp extends StatelessWidget {
               ),
             ),
       ),
-      home: MainPage(),
+      home: const MainPage(),
     );
   }
 }
