@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import './main_page.dart';
+import '../widgets/categories_widget.dart';
+import '../pages/main_page.dart';
 
 class MealsApp extends StatelessWidget {
   const MealsApp({super.key});
@@ -9,18 +10,19 @@ class MealsApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        useMaterial3: true, // Material.io
+        useMaterial3: true,
+        // colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.pink),
         brightness: Brightness.light,
         fontFamily: 'Raleway',
         textTheme: ThemeData.light().textTheme.copyWith(
               titleLarge: const TextStyle(
-                fontSize: 20.0,
+                fontSize: 24.0,
                 fontFamily: 'RobotoCondensed',
               ),
             ),
       ),
-      home: const MainPage(),
+      home: const MainPageState(),
     );
   }
 }
