@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import '../app/routes.dart';
 import '../models/category.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -11,7 +11,9 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       hoverColor: Colors.green,
-      onTap: () {},
+      onTap: () {
+        Navigator.of(context).pushNamed(Routes.categoryMeals);
+      },
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(8.0),
       child: Container(
@@ -32,6 +34,7 @@ class CategoryCard extends StatelessWidget {
           category.title,
           style: Theme.of(context).textTheme.titleMedium?.copyWith(
                 fontWeight: FontWeight.bold,
+                color: Colors.white
               ),
         ),
       ),

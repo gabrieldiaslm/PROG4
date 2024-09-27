@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import '../widgets/categories_widget.dart';
+import 'package:meals/widgets/favorites_widget.dart';
+import './routes.dart';
+import '../pages/category_meals_page.dart';
 import '../pages/main_page.dart';
 
 class MealsApp extends StatelessWidget {
@@ -22,7 +24,17 @@ class MealsApp extends StatelessWidget {
               ),
             ),
       ),
-      home: const MainPageState(),
+      // home: const MainPage(),
+      initialRoute: '/',
+      routes: {
+        Routes.root: (_) => const MainPage(),
+        Routes.favorites: (_) => const FavoritesWidget(),
+        Routes.categoryMeals: (_) {
+          final category = 
+            ModalRoute.of(context)?.settings.arguments;
+          return  CategoryMealsPage(category); // CORRIGIR ESSA PARTE
+        },
+      },
     );
   }
 }
