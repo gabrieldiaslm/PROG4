@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:meals/models/meal.dart';
 import 'package:meals/widgets/favorites_widget.dart';
+
 import './routes.dart';
+import '../models/category.dart';
 import '../pages/category_meals_page.dart';
 import '../pages/main_page.dart';
+import '../pages/meal_detail_page.dart';
 
 class MealsApp extends StatelessWidget {
   const MealsApp({super.key});
@@ -29,12 +33,18 @@ class MealsApp extends StatelessWidget {
       routes: {
         Routes.root: (_) => const MainPage(),
         Routes.favorites: (_) => const FavoritesWidget(),
-        Routes.categoryMeals: (_) {
-          final category = 
-            ModalRoute.of(context)?.settings.arguments;
-          return  CategoryMealsPage(category); // CORRIGIR ESSA PARTE
+        Routes.categoryMeals: (context) {
+          final category = //MUDAR ALGO POR AQUI
+              ModalRoute.of(context)?.settings.arguments as Category;
+          return CategoryMealsPage(category);
         },
+        Routes.mealDetail: (context) {
+          final meal = //MUDAR ALGO POR AQUI
+              ModalRoute.of(context)?.settings.arguments as Meal;
+          return MealDetailPage(meal);
+        }
       },
     );
   }
 }
+  

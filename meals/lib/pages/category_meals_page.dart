@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../models/category.dart';
 import '../models/meals.dart';
 import '../widgets/meal_card.dart';
@@ -6,7 +7,10 @@ import '../widgets/meal_card.dart';
 class CategoryMealsPage extends StatelessWidget {
   final Category category;
 
-  const CategoryMealsPage(this.category, {super.key});
+  const CategoryMealsPage(
+    this.category, {
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +21,16 @@ class CategoryMealsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).primaryColor,
-        title: Text(category.title),
+        foregroundColor: Colors.white,
+        title: Text(
+          category.title,
+        ),
         centerTitle: true,
-        foregroundColor: Colors.white, //mudar cor dos icons e textos
       ),
       body: ListView.builder(
-        itemBuilder: (_, index) => MealCard(meals.elementAt(index)), // FAZER A PARTE DOS CARDS
-      )
+        itemCount: meals.length,
+        itemBuilder: (_, index) => MealCard(meals.elementAt(index)),
+      ),
     );
   }
 }
