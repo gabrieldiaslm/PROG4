@@ -18,7 +18,7 @@ class MealCard extends StatelessWidget {
         Navigator.of(context).pushNamed(
           Routes.mealDetail,
           arguments: meal,
-          );
+        );
       },
       child: Card(
           shape: RoundedRectangleBorder(
@@ -41,15 +41,17 @@ class MealCard extends StatelessWidget {
                     bottom: 15.0,
                     right: 10.0,
                     child: Container(
+                      color: Colors.black45,
                       width: 250.0,
                       padding: const EdgeInsets.all(10.0),
-                      color: Colors.black45,
-                      child: Text(meal.title,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                            height: 1.25,
-                          )),
+                      child: Text(
+                        meal.title,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 18.0,
+                          height: 1.25,
+                        ),
+                      ),
                     ),
                   ),
                 ],

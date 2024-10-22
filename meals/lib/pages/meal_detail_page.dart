@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:meals/widgets/meal_prepare_info_widget.dart';
+import 'package:provider/provider.dart';
+
+import '../widgets/meal_prepare_info_widget.dart';
 
 import '../models/meal.dart';
+import '../providers/meals_provider.dart';
 
 class MealDetailPage extends StatelessWidget {
   final Meal meal;
@@ -10,17 +13,19 @@ class MealDetailPage extends StatelessWidget {
     this.meal, {
     super.key,
   });
-//lib + pubspec.yaml
-  @override
-  State<MealDetailPage> createState() => _MealDetailPageState();
 
-  class _MealDetailPage extends State<MealDetailPage> //{}
   @override
   Widget build(BuildContext context) {
+    final provider = Provider.of<MealsProvider>(
+      context,
+      listen: false,
+    );
+
+    debugPrint('** meal: ${meal.title}');
+
     return Scaffold(
       appBar: AppBar(
-        foregroundColor: Colors.white,
-        backgroundColor: Theme.of(context).primaryColor,
+        // backgroundColor: Theme.of(context).primaryColor,
         title: Text(
           meal.title,
         ),
@@ -28,9 +33,14 @@ class MealDetailPage extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          widget.meal.isFavorite = !widget.meal.isFavorite;
+          debugPrint('favorite: ${meal.isFavorite}');
+          provider.toggleFavorite(meal);
+          debugPrint('favorite: ${meal.isFavorite}');
         },
-        child: const Icon(Icons.star),
+        child: Consumer<MealsProvider>(
+          builder: (_, __, ___) =>
+              Icon(meal.isFavorite ? Icons.star : Icons.star_outline),
+        ),
       ),
       body: SingleChildScrollView(
         child: Column(
