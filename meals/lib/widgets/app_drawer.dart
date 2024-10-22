@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../providers/meals_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../app/routes.dart';
 
@@ -40,6 +42,13 @@ class AppDrawer extends StatelessWidget {
               Navigator.of(context).pushNamed(Routes.settings);
             },
           ),
+          ListTile(
+            leading: const Icon(Icons.save),
+            title: const Text('Exportar Dados'),
+            onTap: () {
+              Provider.of<MealsProvider>(context).exportData(); //algo por aqui
+            },
+          )
         ],
       ),
     );

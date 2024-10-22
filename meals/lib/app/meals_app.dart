@@ -30,6 +30,7 @@ class _MealsAppState extends State<MealsApp> {
         theme: ThemeData(
           useMaterial3: true,
           colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.pink),
+          scaffoldBackgroundColor: Colors.white,
           brightness: Brightness.light,
           fontFamily: 'Raleway',
           textTheme: ThemeData.light().textTheme.copyWith(

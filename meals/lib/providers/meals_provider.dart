@@ -1,12 +1,15 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:meals/models/meal_filter.dart';
-
+import 'package:http/http.dart';
 import '../models/category.dart';
 import '../models/meal.dart';
 import './meals.dart';
 import './categories.dart';
 
 class MealsProvider with ChangeNotifier {
+  final apiUrl = 'https://meals-abda5-default-rtdb.firebaseio.com';
   final List<Category> categories = dataCategories;
   final List<Meal> meals = dataMeals;
   final Map<MealFilter, bool> filters = {};
@@ -46,5 +49,13 @@ class MealsProvider with ChangeNotifier {
   void setFilter(MealFilter filter, bool value) {
     filters[filter] = value;
     notifyListeners();
+  }
+
+  void exportData() {
+    final url = '$apiUrl/categories.json';
+    for (var category in categories) {
+      final json = jsonEncode(category.toMap());
+      post(Uri.parse(url), body: json); // ver aqui + category + meals
+    }
   }
 }
