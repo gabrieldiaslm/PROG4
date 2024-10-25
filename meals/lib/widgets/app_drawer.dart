@@ -46,7 +46,9 @@ class AppDrawer extends StatelessWidget {
             leading: const Icon(Icons.save),
             title: const Text('Exportar Dados'),
             onTap: () {
-              Provider.of<MealsProvider>(context).exportData(); //algo por aqui
+              final provider =
+                  Provider.of<MealsProvider>(context, listen: false);
+              provider.exportMeals();
             },
           )
         ],
