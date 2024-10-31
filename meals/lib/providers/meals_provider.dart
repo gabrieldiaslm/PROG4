@@ -7,7 +7,7 @@ import 'package:meals/models/meal_filter.dart';
 import '../models/category.dart';
 import '../models/meal.dart';
 
-class MealsProvider with ChangeNotifier {
+class MealsProvider with ChangeNotifier { //arrumar banco de dados
   final apiUrl = 'https://meals-abda5-default-rtdb.firebaseio.com';
 
   final List<Category> categories = [];
